@@ -1,0 +1,17 @@
+# 교수님 강의자료는 저작물이므로 올리지 않는다
+**/강의자료/*.pdf
+**/강의자료/*.ppt
+**/강의자료/*.pptx
+**/강의자료/*.hwp
+**/과제/
+**/족보/
+
+# Obsidian 개인 설정과 붙여 넣은 이미지
+.obsidian/workspace*
+.obsidian/cache
+Pasted image *.png
+*.excalidraw.md
+
+# OS
+.DS_Store
+Thumbs.db

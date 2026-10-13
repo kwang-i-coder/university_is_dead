@@ -1,0 +1,63 @@
+# university_is_dead 🎓
+
+**Claude + Obsidian으로 강의를 공부하는 지침서와 노트 양식.**
+강의 PDF를 넣고 `운체 3`, `다음`, `시험 정리본` 같은 짧은 명령어로 슬라이드 순서대로 깊게 설명 듣고, 필기 골격·시험 정리본·ELI5 그림책까지 만듭니다.
+
+> A ready-to-use instruction set and Obsidian note templates for studying university lectures with Claude (Projects or Claude Code). Drop in your lecture PDFs, edit one block, and use short commands like `OS 3` or `next`. Docs are in Korean.
+
+---
+
+## 무엇을 할 수 있나
+
+| 말하면 | 이렇게 됩니다 |
+|---|---|
+| `운체 3` | 3장을 핵심 질문 단위 그룹으로 나눈 지도를 보여 주고 그룹 1을 설명 |
+| `운체 3-2` / `다음` | 그룹 하나만 슬라이드 순서대로, 수식·숫자 예시·셀프 체크 질문까지 |
+| "골격 만들어줘" + PDF | `## 대제목 / ### Slide Title (한글) / - ` 형식의 빈 필기 노트 |
+| "정리해줘" | 내 필기는 보존하고 빈 곳만 PDF 기준으로 채운 완성 노트 |
+| "시험 정리본" | ★ 중요도, 비교 표, 연습문제 + 채점 기준, 시험 포인트 Q&A |
+| `/eli5 {노트}` | 비유와 강의 정의를 구분한 HTML 그림책 |
+
+## 5분 시작 가이드
+
+1. 이 레포를 받습니다. GitHub에서 **Use this template** 또는 Code → Download ZIP.
+2. `example-vault/`를 참고해 내 Obsidian vault에 과목 폴더를 만듭니다.
+   ```
+   {과목}/
+   ├── 강의자료/        ← 교수님 PDF (읽기 전용)
+   ├── {강의자료 제목}.md  ← 주차별 필기
+   ├── 개념.md          ← 개념 허브 + 주차별 필기 표
+   ├── 클코 정리/       ← 시험 정리본
+   └── 학습자료/        ← ELI5 HTML
+   ```
+3. `INSTRUCTIONS.md`를 열어 **"📝 여기만 고치세요"** 블록에 학교·과목·줄임말을 적습니다.
+4. 지침을 Claude에 넣습니다.
+   - **Claude Projects**: 내용을 프로젝트 지침(Project instructions) 칸에 붙여 넣고 과목 폴더를 자료로 연결.
+   - **Claude Code**: 같은 수정을 `CLAUDE.md`에 하고 vault 루트에 둔 뒤 그 폴더에서 실행.
+5. `{줄임말} 1`이라고 말해 봅니다.
+
+## 레포 구성
+
+| 경로 | 내용 |
+|---|---|
+| [`INSTRUCTIONS.md`](INSTRUCTIONS.md) | 프로젝트 지침 원본 (Claude Projects용) |
+| [`CLAUDE.md`](CLAUDE.md) | 같은 지침 (Claude Code용) |
+| [`templates/`](templates) | 필기 골격, 개념.md, 시험 정리본, ELI5 HTML 빈 양식 |
+| [`example-vault/알고리즘/`](example-vault/알고리즘) | 가상 과목으로 채운 예시. Obsidian으로 열어 보세요 |
+| [`docs/사용 예시.md`](docs/사용%20예시.md) | 명령어별 대화 흐름 |
+| [`docs/FAQ.md`](docs/FAQ.md) | 자주 묻는 질문 |
+
+## 핵심 원칙
+
+- **강의자료가 기준.** 슬라이드에 없는 내용은 "교재 보충"으로 표시합니다.
+- **내 필기는 덮어쓰지 않음.** 보강만 최소한으로.
+- **슬라이드 순서 그대로.** 그룹을 섞지 않고, 부록은 따로.
+- **빈약하게 쓰지 않음.** 동기 → 직관 → 정의/수식 → 숫자 예시 → 한계 순서로.
+
+## ⚠️ 강의자료는 올리지 마세요
+
+교수님 강의자료와 강의 내용을 옮긴 노트는 저작물입니다. 내 vault를 GitHub에 백업한다면 이 레포의 [`.gitignore`](.gitignore)를 함께 쓰고, 공개 레포에는 올리지 마세요. 이 레포의 예시는 모두 새로 만든 가상 강의입니다.
+
+## License
+
+[MIT](LICENSE)
