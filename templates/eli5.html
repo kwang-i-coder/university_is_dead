@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{강의자료 제목} 그림책</title>
+<style>
+  :root {
+    --bg: #fbfaf7; --text: #1f2328; --muted: #5b6470; --card: #ffffff; --line: #e4e1da;
+    --analogy-bg: #fff6e0; --analogy-line: #e0a526;
+    --def-bg: #e9f1ff; --def-line: #3a6fd8;
+    --exam-bg: #ffeceb; --exam-line: #d9534f;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #16181c; --text: #e8e6e3; --muted: #a0a7b0; --card: #1f2227; --line: #333840;
+      --analogy-bg: #3a2f14; --analogy-line: #e0a526;
+      --def-bg: #172540; --def-line: #6a9cff;
+      --exam-bg: #3d1e1d; --exam-line: #ff7b72;
+    }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text);
+         font: 17px/1.7 "Noto Sans KR", system-ui, sans-serif; }
+  main { max-width: 760px; margin: 0 auto; padding: 32px 16px 80px; }
+  h1 { font-size: 1.8rem; margin: 0 0 4px; }
+  .sub { color: var(--muted); margin: 0 0 32px; }
+  section.scene { background: var(--card); border: 1px solid var(--line); border-radius: 14px;
+                  padding: 20px 22px; margin: 0 0 24px; }
+  section.scene h2 { font-size: 1.25rem; margin: 0 0 12px; }
+  .box { border-left: 4px solid; border-radius: 8px; padding: 12px 14px; margin: 12px 0; }
+  .box b.tag { display: block; font-size: .85rem; margin-bottom: 4px; }
+  /* 비유(💡)와 강의 정의(📘)를 시각적으로 구분한다 */
+  .analogy { background: var(--analogy-bg); border-color: var(--analogy-line); }
+  .definition { background: var(--def-bg); border-color: var(--def-line); }
+  .exam { background: var(--exam-bg); border-color: var(--exam-line); }
+  .slides { color: var(--muted); font-size: .85rem; }
+</style>
+</head>
+<body>
+<main>
+  <h1>{강의자료 제목}</h1>
+  <p class="sub">{과목명} · 다섯 살에게 설명하듯</p>
+
+  <section class="scene">
+    <h2>장면 1. {한 줄 제목}</h2>
+    <p class="slides">슬라이드 p.{xx}–{yy}</p>
+    <!-- 큰 그림 하나 (인라인 SVG 권장) -->
+    <div class="box analogy"><b class="tag">💡 비유</b>{쉬운 비유}</div>
+    <div class="box definition"><b class="tag">📘 강의 정의</b>{슬라이드의 정의를 그대로}</div>
+    <div class="box exam"><b class="tag">⭐ 시험 포인트</b>{슬라이드의 Q: …}</div>
+  </section>
+</main>
+</body>
+</html>

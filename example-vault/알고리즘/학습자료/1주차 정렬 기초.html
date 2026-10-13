@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>정렬 기초 그림책</title>
+<style>
+  :root {
+    --bg: #fbfaf7; --text: #1f2328; --muted: #5b6470; --card: #ffffff; --line: #e4e1da;
+    --analogy-bg: #fff6e0; --analogy-line: #e0a526;
+    --def-bg: #e9f1ff; --def-line: #3a6fd8;
+    --exam-bg: #ffeceb; --exam-line: #d9534f;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #16181c; --text: #e8e6e3; --muted: #a0a7b0; --card: #1f2227; --line: #333840;
+      --analogy-bg: #3a2f14; --analogy-line: #e0a526;
+      --def-bg: #172540; --def-line: #6a9cff;
+      --exam-bg: #3d1e1d; --exam-line: #ff7b72;
+    }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text);
+         font: 17px/1.7 "Noto Sans KR", system-ui, sans-serif; }
+  main { max-width: 760px; margin: 0 auto; padding: 32px 16px 80px; }
+  h1 { font-size: 1.8rem; margin: 0 0 4px; }
+  .sub { color: var(--muted); margin: 0 0 32px; }
+  section.scene { background: var(--card); border: 1px solid var(--line); border-radius: 14px;
+                  padding: 20px 22px; margin: 0 0 24px; }
+  section.scene h2 { font-size: 1.25rem; margin: 0 0 12px; }
+  .box { border-left: 4px solid; border-radius: 8px; padding: 12px 14px; margin: 12px 0; }
+  .box b.tag { display: block; font-size: .85rem; margin-bottom: 4px; }
+  /* 비유(💡)와 강의 정의(📘)를 시각적으로 구분한다 */
+  .analogy { background: var(--analogy-bg); border-color: var(--analogy-line); }
+  .definition { background: var(--def-bg); border-color: var(--def-line); }
+  .exam { background: var(--exam-bg); border-color: var(--exam-line); }
+  .slides { color: var(--muted); font-size: .85rem; }
+</style>
+</head>
+<body>
+<main>
+  <h1>1주차 정렬 기초</h1>
+  <p class="sub">알고리즘 (예시 과목) · 다섯 살에게 설명하듯</p>
+
+  <section class="scene">
+    <h2>장면 1. 줄 세우기 놀이</h2>
+    <p class="slides">슬라이드 p.2–3</p>
+    <svg viewBox="0 0 320 90" width="100%" role="img" aria-label="키가 다른 막대 네 개가 낮은 것부터 높은 순서로 정렬된 그림">
+      <g fill="#3a6fd8"><rect x="20" y="60" width="50" height="20" rx="4"/><rect x="95" y="45" width="50" height="35" rx="4"/><rect x="170" y="30" width="50" height="50" rx="4"/><rect x="245" y="10" width="50" height="70" rx="4"/></g>
+    </svg>
+    <div class="box analogy"><b class="tag">💡 비유</b>친구들을 키 작은 순서대로 줄 세우는 것이 정렬이에요.</div>
+    <div class="box definition"><b class="tag">📘 강의 정의</b>수열 a₁, …, aₙ을 받아 a'₁ ≤ a'₂ ≤ … ≤ a'ₙ 인 순열을 출력하는 문제.</div>
+  </section>
+
+  <section class="scene">
+    <h2>장면 2. 카드 끼워 넣기</h2>
+    <p class="slides">슬라이드 p.6–7</p>
+    <div class="box analogy"><b class="tag">💡 비유</b>손에 든 카드를 정리할 때, 새 카드를 한 장 받을 때마다 알맞은 자리에 끼워 넣어요. 이게 Insertion Sort예요.</div>
+    <div class="box definition"><b class="tag">📘 강의 정의</b>앞쪽의 정렬된 부분 배열에 다음 원소를 알맞은 위치에 삽입하는 과정을 반복한다. 최악 O(n²), 최선 O(n).</div>
+    <div class="box exam"><b class="tag">⭐ 시험 포인트</b>Q: 거의 정렬된 입력에서 Insertion Sort가 빠른 이유는?</div>
+  </section>
+</main>
+</body>
+</html>
