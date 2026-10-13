@@ -69,6 +69,10 @@
 
 교수님 강의자료와 강의 내용을 옮긴 노트는 저작물입니다. 내 vault를 GitHub에 백업한다면 이 레포의 [`.gitignore`](.gitignore)를 함께 쓰고, 공개 레포에는 올리지 마세요. 이 레포의 예시는 모두 새로 만든 가상 강의입니다.
 
+## 기여하기
+
+새 명령어, 과목 유형별 규칙, 템플릿 개선 모두 환영해요. [`CONTRIBUTING.md`](CONTRIBUTING.md)를 읽고 이슈 템플릿(Bug Report / Enhancement Request / Common Issue)으로 이슈를 연 뒤 PR을 보내 주세요. PR마다 지침 파일 동기화, 예시 vault 링크, 강의자료 업로드 여부를 자동으로 검사합니다.
+
 ## License
 
 [MIT](LICENSE)
