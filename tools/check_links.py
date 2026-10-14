@@ -6,7 +6,10 @@
 폴더 안 모든 .md의 [[노트]], [[노트#헤딩]], [[파일.pdf#page=N]] 링크를 확인한다.
 - 없는 노트나 헤딩은 오류로 센다 (종료 코드 1).
 - 없는 첨부(PDF·이미지)는 경고만 한다. 강의자료는 .gitignore로 빠져 있을 수 있기 때문이다.
-노트 이름은 Obsidian처럼 vault 전체에서 찾는다.
+- 없는 .canvas는 오류로 센다.
+- 같은 이름의 노트가 여러 개면 "모호함" 경고를 내고, 헤딩은 후보 중 하나에만 있어도 통과시킨다.
+노트 이름은 Obsidian처럼 vault 전체에서 대소문자 구분 없이 찾는다.
+한글 파일명은 NFC로 맞춰 비교한다 (macOS에서 받은 NFD 파일명 대비).
 vault 루트는 위로 올라가며 처음 만나는 .obsidian 폴더나 CLAUDE.md가 있는 곳이다.
 못 찾으면 대상 폴더를 루트로 보고 경고한다. 이때 [[학기/과목/개념]] 같은 경로 링크는 틀리게 나올 수 있다.
 대상 폴더가 없거나 .md가 하나도 없으면 종료 코드 2로 끝난다.
@@ -14,10 +17,13 @@ vault 루트는 위로 올라가며 처음 만나는 .obsidian 폴더나 CLAUDE.
 import pathlib
 import re
 import sys
+import unicodedata
 from typing import Optional
 
 ATTACH = re.compile(r"\.(pdf|png|jpe?g|gif|svg|webp|html)$", re.I)
 LINK = re.compile(r"!?\[\[([^\]|\\]+?)(?:\\?\|[^\]]*)?\]\]")
+CODE_OR_LINK = re.compile(r"`[^`\n]*`|" + LINK.pattern)
+CANVAS = re.compile(r"\.canvas$", re.I)
 HEADING = re.compile(r"^#{1,6} +(.*?)\s*$")
 
 
@@ -28,14 +34,28 @@ def vault_root(start: pathlib.Path) -> Optional[pathlib.Path]:
     return None
 
 
-def strip_code(text: str) -> str:
-    text = re.sub(r"```.*?```", "", text, flags=re.S)
-    return re.sub(r"`[^`\n]*`", "", text)
+def nfc(text: str) -> str:
+    return unicodedata.normalize("NFC", text)
+
+
+def key(name: str) -> str:
+    return nfc(name).casefold()
+
+
+def strip_fences(text: str) -> str:
+    return re.sub(r"```.*?```", "", text, flags=re.S)
+
+
+def links(text: str):
+    """코드 블록과 인라인 코드 밖의 링크 대상만 돌려준다. 링크 안의 `코드`는 그대로 둔다."""
+    for m in CODE_OR_LINK.finditer(strip_fences(text)):
+        if m.group(1) is not None:
+            yield m.group(1)
 
 
 def headings(path: pathlib.Path, cache: dict) -> set:
     if path not in cache:
-        lines = strip_code(path.read_text(encoding="utf-8")).split("\n")
+        lines = nfc(strip_fences(path.read_text(encoding="utf-8"))).split("\n")
         cache[path] = {m.group(1) for l in lines if (m := HEADING.match(l))}
     return cache[path]
 
@@ -57,24 +77,34 @@ def main() -> int:
         root = target
     notes = {}
     for p in root.rglob("*.md"):
-        notes.setdefault(p.stem, p)
-        notes.setdefault(str(p.relative_to(root).with_suffix("")), p)
-    files = {p.name for p in root.rglob("*") if p.is_file()}
+        rel = p.relative_to(root).with_suffix("").as_posix()
+        for k in {key(p.stem), key(rel)}:
+            notes.setdefault(k, []).append(p)
+    files = set()
+    for p in root.rglob("*"):
+        if p.is_file():
+            files.add(key(p.name))
+            files.add(key(p.relative_to(root).as_posix()))
     cache, errors, warnings = {}, [], []
 
     for md in sorted(target.rglob("*.md")):
-        text = strip_code(md.read_text(encoding="utf-8"))
-        for m in LINK.finditer(text):
-            name, _, head = m.group(1).partition("#")
-            where = f"{md.relative_to(target)}: [[{m.group(1)}]]"
-            if ATTACH.search(name):
-                if pathlib.Path(name).name not in files:
-                    warnings.append(f"첨부 없음  {where}")
+        for raw in links(md.read_text(encoding="utf-8")):
+            name, _, head = nfc(raw).partition("#")
+            where = f"{md.relative_to(target)}: [[{raw}]]"
+            if ATTACH.search(name) or CANVAS.search(name):
+                if key(name) not in files and key(pathlib.PurePosixPath(name).name) not in files:
+                    if CANVAS.search(name):
+                        errors.append(f"파일 없음  {where}")
+                    else:
+                        warnings.append(f"첨부 없음  {where}")
                 continue
-            dest = notes.get(name) if name else md
-            if dest is None:
+            dests = notes.get(key(name), []) if name else [md]
+            if not dests:
                 errors.append(f"노트 없음  {where}")
-            elif head and not head.startswith("^") and head not in headings(dest, cache):
+                continue
+            if len(dests) > 1:
+                warnings.append(f"모호함     {where} (같은 이름 {len(dests)}개, 경로로 링크하세요)")
+            if head and not head.startswith("^") and not any(head in headings(d, cache) for d in dests):
                 errors.append(f"헤딩 없음  {where}")
 
     for line in warnings + errors:
