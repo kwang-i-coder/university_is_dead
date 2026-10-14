@@ -48,7 +48,7 @@
 | [`CLAUDE.md`](CLAUDE.md) | 같은 지침 (Claude Code용) |
 | [`templates/`](templates) | 필기 골격, 개념.md, 시험 정리본, 클코 설명, 기출 분석, ELI5 HTML 빈 양식 |
 | [`tools/check_links.py`](tools/check_links.py) | Obsidian 링크 검사기 (없는 노트·헤딩·첨부를 찾음) |
-| [`example-vault/알고리즘/`](example-vault/알고리즘) | 가상 과목으로 채운 예시. Obsidian으로 열어 보세요 |
+| [`example-vault/3-1/알고리즘/`](example-vault/3-1/알고리즘) | 가상 과목으로 채운 예시. Obsidian으로 열어 보세요 |
 | [`docs/사용 예시.md`](docs/사용%20예시.md) | 명령어별 대화 흐름 |
 | [`docs/FAQ.md`](docs/FAQ.md) | 자주 묻는 질문 |
 
