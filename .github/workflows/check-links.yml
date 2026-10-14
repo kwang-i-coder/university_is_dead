@@ -1,0 +1,19 @@
+name: check-links
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.x"
+      - name: 링크 검사기 테스트
+        run: python3 -m unittest discover tests -v
+      - name: 예시 vault 링크 검사
+        run: python3 tools/check_links.py example-vault
