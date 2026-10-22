@@ -24,23 +24,22 @@
 ## 5분 시작 가이드
 
 1. 이 레포를 받습니다. GitHub에서 **Use this template** 또는 Code → Download ZIP.
-2. `example-vault/`를 참고해 내 Obsidian vault에 학기 폴더와 과목 폴더를 만듭니다. 학기 폴더 이름은 자유롭게 정합니다(예: `3-1`, `2026-1`). 한 번 정하면 계속 같은 형식을 씁니다.
+2. `example-vault/`를 참고해 내 Obsidian vault에 과목 폴더를 만듭니다. 학기별 폴더 안에 두어도 되고, 그때는 과목 표에 그 경로까지 적습니다.
    ```
    (vault 루트)/
    ├── CLAUDE.md          ← Claude Code를 쓸 때 (4단계)
    ├── templates/         ← 이 레포의 templates/ 복사
    ├── tools/             ← 이 레포의 tools/ 복사
-   └── 3-1/
-       └── {과목}/
-           ├── 강의자료/        ← 교수님 PDF (읽기 전용)
-           ├── {강의자료 제목}.md  ← 주차별 필기
-           ├── 개념.md          ← 개념 허브 + 주차별 필기 표
-           ├── 클코 정리/       ← 시험 정리본, 기출 분석
-           ├── 클코 설명/       ← 그룹 설명 저장본
-           └── 학습자료/        ← ELI5 HTML
+   └── {과목}/
+       ├── 강의자료/        ← 교수님 PDF (읽기 전용)
+       ├── {강의자료 제목}.md  ← 주차별 필기
+       ├── 개념.md          ← 개념 허브 + 주차별 필기 표
+       ├── 클코 정리/       ← 시험 정리본, 기출 분석
+       ├── 클코 설명/       ← 그룹 설명 저장본
+       └── 학습자료/        ← ELI5 HTML
    ```
    강의자료 PDF 이름은 필기 노트 이름과 같게 둡니다(`1주차 정렬 기초.md` ↔ `강의자료/1주차 정렬 기초.pdf`). 그래야 PDF 페이지 링크가 이어집니다.
-3. `INSTRUCTIONS.md`를 열어 **"📝 여기만 고치세요"** 블록에 학교·과목·줄임말을 적습니다. 과목 폴더는 `3-1/딥러닝/`처럼 학기 폴더까지 적습니다.
+3. `INSTRUCTIONS.md`를 열어 **"📝 여기만 고치세요"** 블록에 학교·과목·줄임말을 적습니다. 과목 폴더는 vault 루트 기준 경로로 적습니다(예: `딥러닝/`).
 4. 지침을 Claude에 넣습니다.
    - **Claude Projects**: 내용을 프로젝트 지침(Project instructions) 칸에 붙여 넣고, 과목 폴더와 `templates/` 파일을 자료로 올립니다.
    - **Claude Code**: 같은 수정을 `CLAUDE.md`에 하고, `CLAUDE.md`·`templates/`·`tools/`를 vault 루트에 복사한 뒤 그 폴더에서 실행합니다. 링크 검사기에는 Python 3.8 이상이 필요합니다.
@@ -54,7 +53,7 @@
 | [`CLAUDE.md`](CLAUDE.md) | 같은 지침 (Claude Code용) |
 | [`templates/`](templates) | 필기 골격, 개념.md, 시험 정리본, 클코 설명, 기출 분석, ELI5 HTML 빈 양식 |
 | [`tools/check_links.py`](tools/check_links.py) | Obsidian 링크 검사기 (없는 노트·헤딩·첨부를 찾음) |
-| [`example-vault/3-1/알고리즘/`](example-vault/3-1/알고리즘) | 가상 과목으로 채운 예시. Obsidian으로 열어 보세요 |
+| [`example-vault/알고리즘/`](example-vault/알고리즘) | 가상 과목으로 채운 예시. Obsidian으로 열어 보세요 |
 | [`docs/사용 예시.md`](docs/사용%20예시.md) | 명령어별 대화 흐름 |
 | [`docs/FAQ.md`](docs/FAQ.md) | 자주 묻는 질문 |
 
