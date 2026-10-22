@@ -9,12 +9,15 @@ jobs:
   check:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - name: CLAUDE.md와 INSTRUCTIONS.md 규칙 부분이 같은지 확인
         run: |
           diff <(sed -n '/^## 📝/,$p' CLAUDE.md) <(sed -n '/^## 📝/,$p' INSTRUCTIONS.md) \
             || { echo "::error::CLAUDE.md와 INSTRUCTIONS.md의 '## 📝 여기만 고치세요' 아래 내용이 다릅니다. 둘을 똑같이 맞춰 주세요."; exit 1; }
+
+      - name: Link checker unit tests
+        run: python3 -m unittest discover tests -v
 
       - name: 예시 vault 링크 검사
         run: python3 tools/check_links.py example-vault
