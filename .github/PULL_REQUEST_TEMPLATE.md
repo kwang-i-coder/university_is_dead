@@ -37,4 +37,4 @@ Fixes #
 - [ ] `CLAUDE.md`와 `INSTRUCTIONS.md`의 규칙 부분을 똑같이 맞췄다 (지침을 바꾼 경우)
 - [ ] 실제 강의자료, 교수님 슬라이드, 실제 강의를 옮긴 노트, 기출 원본을 넣지 않았다 (예시는 가상 강의로 만든다)
 - [ ] `python3 tools/check_links.py example-vault` 오류 0개
-- [ ] 새 명령어나 규칙이면 `README.md` 표와 `docs/사용 예시.md`도 갱신했다
+- [ ] 새 명령어나 규칙이면 `README.md`·`README.ko.md` 표와 `docs/usage-examples*.md`도 갱신했다

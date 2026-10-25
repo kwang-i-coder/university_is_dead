@@ -29,8 +29,8 @@ university_is_dead에 관심 가져 주셔서 고마워요. 이 레포는 각자
 - 개인 취향에 가까운 규칙은 기본값을 바꾸기보다 선택 사항(과목별 예외, 명령어)으로 제안해 주세요.
 
 ### 새 명령어나 규칙을 추가하면 문서도 같이
-- `README.md`의 "무엇을 할 수 있나" 표
-- `docs/사용 예시.md`의 대화 흐름
+- `README.md`의 "What it does" 표와 `README.ko.md`의 "무엇을 할 수 있나" 표
+- `docs/usage-examples.md`와 `docs/usage-examples.ko.md`의 대화 흐름
 - 필요하면 `templates/`의 빈 양식과 `example-vault/`의 예시
 
 ## 확인 방법
