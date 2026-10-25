@@ -1,26 +1,26 @@
 ---
 name: Bug Report
-about: 지침이나 템플릿대로 했는데 Claude가 다르게 동작했을 때
+about: You followed the instructions or templates, but Claude behaved differently
 labels: bug
 
 ---
 
-<!-- 강의자료 원문이나 교수님 슬라이드 캡처는 올리지 마세요. 필요한 부분만 말로 설명하거나 가상의 예로 바꿔 주세요. -->
+<!-- Do not upload lecture text or screenshots of professors' slides. Describe only the part you need in words, or replace it with a made-up example. -->
 
-**어떤 일이 있었나요**:
+**What happened**:
 
-**기대한 동작은 무엇이었나요**:
+**What did you expect to happen**:
 
-**재현 방법 (보낸 명령어와 상황)**:
-<!-- 예: `DL 3` 입력 → 그룹 지도 없이 바로 설명 시작 -->
+**How to reproduce it (the command you sent and the situation)**:
+<!-- Example: typed `DL 3` → the explanation started right away without a group map -->
 
-**관련 규칙**:
-<!-- INSTRUCTIONS.md / CLAUDE.md의 어느 규칙과 다르게 동작했는지. 예: "골격 규칙 — 헤딩 아래 빈 불릿" -->
+**Related rule**:
+<!-- Which rule in INSTRUCTIONS.md / CLAUDE.md Claude did not follow. Example: "골격 규칙 — an empty bullet under each heading" -->
 
-**더 알려줄 것**:
+**Anything else we need to know**:
 
-**환경**:
-- 사용 방식 (Claude Projects / Claude Code / 기타):
-- 모델 (예: Claude Opus, Sonnet):
-- Obsidian 버전 (링크·렌더링 문제일 때):
-- 과목 유형 (예: 영어 슬라이드, 한국어 PDF, 스캔본, 증명 과목):
+**Environment**:
+- How you use it (Claude Projects / Claude Code / other):
+- Model (e.g. Claude Opus, Sonnet):
+- Obsidian version (for link or rendering problems):
+- Kind of course (e.g. English slides, Korean PDF, scanned PDF, proof course):
