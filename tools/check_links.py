@@ -1,18 +1,19 @@
 #!/usr/bin/env python3
-"""Obsidian 위키링크 검사기.
+"""Obsidian wikilink checker.
 
-사용법: python3 tools/check_links.py {과목 폴더 또는 vault 폴더}
+Usage: python3 tools/check_links.py {course folder or vault folder}
 
-폴더 안 모든 .md의 [[노트]], [[노트#헤딩]], [[파일.pdf#page=N]] 링크를 확인한다.
-- 없는 노트나 헤딩은 오류로 센다 (종료 코드 1).
-- 없는 첨부(PDF·이미지)는 경고만 한다. 강의자료는 .gitignore로 빠져 있을 수 있기 때문이다.
-- 없는 .canvas는 오류로 센다.
-- 같은 이름의 노트가 여러 개면 "모호함" 경고를 내고, 헤딩은 후보 중 하나에만 있어도 통과시킨다.
-노트 이름은 Obsidian처럼 vault 전체에서 대소문자 구분 없이 찾는다.
-한글 파일명은 NFC로 맞춰 비교한다 (macOS에서 받은 NFD 파일명 대비).
-vault 루트는 위로 올라가며 처음 만나는 .obsidian 폴더나 CLAUDE.md가 있는 곳이다.
-못 찾으면 대상 폴더를 루트로 보고 경고한다. 이때 [[학기/과목/개념]] 같은 경로 링크는 틀리게 나올 수 있다.
-대상 폴더가 없거나 .md가 하나도 없으면 종료 코드 2로 끝난다.
+Checks the [[note]], [[note#heading]], and [[file.pdf#page=N]] links in every .md in the folder.
+- A missing note or heading is an error (exit code 1).
+- A missing attachment (PDF, image) is only a warning, since lecture materials may be excluded by .gitignore.
+- A missing .canvas is an error.
+- When several notes share a name, it warns "ambiguous" and accepts a heading found in any of them.
+Note names are matched across the whole vault case-insensitively, as Obsidian does.
+Korean file names are compared after NFC normalization (macOS may produce NFD names).
+The vault root is the first folder, going upward, that contains a .obsidian folder or CLAUDE.md.
+If none is found, the target folder is used as the root with a warning; path links such as
+[[folder/course/note]] may then be reported wrongly.
+Exits with code 2 if the target folder does not exist or contains no .md files.
 """
 import pathlib
 import re
@@ -47,7 +48,7 @@ def strip_fences(text: str) -> str:
 
 
 def links(text: str):
-    """코드 블록과 인라인 코드 밖의 링크 대상만 돌려준다. 링크 안의 `코드`는 그대로 둔다."""
+    """Yields link targets outside code blocks and inline code. `code` inside a link is kept as is."""
     for m in CODE_OR_LINK.finditer(strip_fences(text)):
         if m.group(1) is not None:
             yield m.group(1)
@@ -66,14 +67,14 @@ def main() -> int:
         return 2
     target = pathlib.Path(sys.argv[1]).resolve()
     if not target.is_dir():
-        print(f"폴더가 아님: {sys.argv[1]}", file=sys.stderr)
+        print(f"not a directory: {sys.argv[1]}", file=sys.stderr)
         return 2
     if next(target.rglob("*.md"), None) is None:
-        print(f".md 파일이 없음: {sys.argv[1]}", file=sys.stderr)
+        print(f"no .md files: {sys.argv[1]}", file=sys.stderr)
         return 2
     root = vault_root(target)
     if root is None:
-        print("경고: vault 루트(.obsidian 또는 CLAUDE.md)를 못 찾아 대상 폴더를 루트로 봄. 경로 링크가 틀리게 나올 수 있음", file=sys.stderr)
+        print("warning: vault root (.obsidian or CLAUDE.md) not found; using the target folder as the root. Path links may be reported wrongly", file=sys.stderr)
         root = target
     notes = {}
     for p in root.rglob("*.md"):
@@ -94,22 +95,22 @@ def main() -> int:
             if ATTACH.search(name) or CANVAS.search(name):
                 if key(name) not in files and key(pathlib.PurePosixPath(name).name) not in files:
                     if CANVAS.search(name):
-                        errors.append(f"파일 없음  {where}")
+                        errors.append(f"missing file        {where}")
                     else:
-                        warnings.append(f"첨부 없음  {where}")
+                        warnings.append(f"missing attachment  {where}")
                 continue
             dests = notes.get(key(name), []) if name else [md]
             if not dests:
-                errors.append(f"노트 없음  {where}")
+                errors.append(f"missing note        {where}")
                 continue
             if len(dests) > 1:
-                warnings.append(f"모호함     {where} (같은 이름 {len(dests)}개, 경로로 링크하세요)")
+                warnings.append(f"ambiguous           {where} ({len(dests)} notes share this name; link by path)")
             if head and not head.startswith("^") and not any(head in headings(d, cache) for d in dests):
-                errors.append(f"헤딩 없음  {where}")
+                errors.append(f"missing heading     {where}")
 
     for line in warnings + errors:
         print(line)
-    print(f"\n오류 {len(errors)}개, 경고 {len(warnings)}개")
+    print(f"\n{len(errors)} errors, {len(warnings)} warnings")
     return 1 if errors else 0
 
 
