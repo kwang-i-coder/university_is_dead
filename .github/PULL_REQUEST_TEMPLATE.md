@@ -1,40 +1,41 @@
-<!--  PR 보내 주셔서 고마워요! -->
+<!--  Thanks for sending a PR! -->
 
-**이 PR이 하는 일 / 필요한 이유**:
+**What this PR does / why we need it**:
 
-**관련 이슈**:
+**Related issue**:
 
 <!--
-PR이 머지되면 연결된 이슈가 자동으로 닫힙니다.
-사용법: `Fixes #<이슈 번호>` 또는 `Fixes (이슈 링크)`
+The linked issue closes automatically when the PR is merged.
+Usage: `Fixes #<issue number>` or `Fixes (link to the issue)`
 -->
 
 Fixes #
 
-**변경 종류**:
-- [ ] 지침 (`INSTRUCTIONS.md` / `CLAUDE.md`)
-- [ ] 템플릿 (`templates/`)
-- [ ] 예시 vault (`example-vault/`)
-- [ ] 도구 (`tools/`)
-- [ ] 문서 (`README.md`, `docs/`)
+**Type of change**:
+- [ ] Instructions (`INSTRUCTIONS.md` / `CLAUDE.md`)
+- [ ] Templates (`templates/`)
+- [ ] Example vault (`example-vault/`)
+- [ ] Tools (`tools/`)
+- [ ] Docs (`README.md`, `docs/`)
 
-**리뷰어에게 따로 전할 점**:
+**Notes for the reviewer**:
 
-**사용자가 체감하는 변화가 있나요?**:
+**Does this change anything users will notice?**:
 
 <!--
-없으면 아래 블록에 "NONE"이라고 쓰세요.
-있으면 새 명령어, 바뀐 파일 이름 규칙처럼 사용자가 알아야 할 점을 적어 주세요.
-기존 vault를 손봐야 한다면 "action required"를 포함해 주세요.
+If not, write "NONE" in the block below.
+If so, describe what users need to know, such as a new command or a changed file naming rule.
+If existing vaults need to be updated, include "action required".
 -->
 
 ```release-note
 
 ```
 
-**체크리스트**:
+**Checklist**:
 
-- [ ] `CLAUDE.md`와 `INSTRUCTIONS.md`의 규칙 부분을 똑같이 맞췄다 (지침을 바꾼 경우)
-- [ ] 실제 강의자료, 교수님 슬라이드, 실제 강의를 옮긴 노트, 기출 원본을 넣지 않았다 (예시는 가상 강의로 만든다)
-- [ ] `python3 tools/check_links.py example-vault` 오류 0개
-- [ ] 새 명령어나 규칙이면 `README.md` 표와 `docs/사용 예시.md`도 갱신했다
+- [ ] The rule sections of `CLAUDE.md` and `INSTRUCTIONS.md` are identical (if you changed the instructions)
+- [ ] No real lecture materials, professors' slides, transcribed lecture notes, or original past exams are included (examples use fictional lectures)
+- [ ] `python3 tools/check_links.py example-vault` reports 0 errors
+- [ ] For a new command or rule, I updated the tables in `README.md` and `README.ko.md` and `docs/usage-examples*.md`
+- [ ] If I changed an English doc or its `.ko.md` counterpart, I updated both

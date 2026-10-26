@@ -11,18 +11,18 @@ jobs:
     steps:
       - uses: actions/checkout@v7
 
-      - name: CLAUDE.md와 INSTRUCTIONS.md 규칙 부분이 같은지 확인
+      - name: Check that CLAUDE.md and INSTRUCTIONS.md rules match
         run: |
           diff <(sed -n '/^## 📝/,$p' CLAUDE.md) <(sed -n '/^## 📝/,$p' INSTRUCTIONS.md) \
-            || { echo "::error::CLAUDE.md와 INSTRUCTIONS.md의 '## 📝 여기만 고치세요' 아래 내용이 다릅니다. 둘을 똑같이 맞춰 주세요."; exit 1; }
+            || { echo "::error::CLAUDE.md and INSTRUCTIONS.md differ below '## 📝 여기만 고치세요'. Make them identical."; exit 1; }
 
       - name: Link checker unit tests
         run: python3 -m unittest discover tests -v
 
-      - name: 예시 vault 링크 검사
+      - name: Check example vault links
         run: python3 tools/check_links.py example-vault
 
-      - name: 강의자료 원본이 올라오지 않았는지 확인
+      - name: Check that no lecture materials are committed
         run: |
           found=$(git ls-files | grep -Ei '(^|/)강의자료/.*\.(pdf|pptx?|hwp|png|jpe?g)$' || true)
-          if [ -n "$found" ]; then echo "::error::강의자료 원본은 올리지 마세요:"; echo "$found"; exit 1; fi
+          if [ -n "$found" ]; then echo "::error::Do not commit original lecture materials:"; echo "$found"; exit 1; fi

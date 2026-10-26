@@ -1,11 +1,11 @@
 ---
 name: Common Issue
-about: 질문, 사용 후기, 문서 개선 등 그 밖의 이슈
+about: Questions, feedback, documentation improvements, and other issues
 labels:
 
 ---
-<!-- 버그나 기능 제안이 아닌 이슈에 써 주세요 -->
+<!-- Use this for issues that are neither bugs nor feature requests -->
 
-**설명**:
+**Description**:
 
-**이유**:
+**Why**:

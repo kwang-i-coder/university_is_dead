@@ -1,4 +1,4 @@
-"""tools/check_links.py 회귀 테스트. 실행: python3 -m unittest discover tests"""
+"""Regression tests for tools/check_links.py. Run: python3 -m unittest discover tests"""
 import pathlib
 import subprocess
 import sys
@@ -37,8 +37,8 @@ class CheckLinksTest(unittest.TestCase):
         self.write("a.md", "[[없는 노트]] [[a#없는 헤딩]]\n")
         code, out = self.run_check()
         self.assertEqual(code, 1)
-        self.assertIn("노트 없음", out)
-        self.assertIn("헤딩 없음", out)
+        self.assertIn("missing note", out)
+        self.assertIn("missing heading", out)
 
     def test_nfd_filename_matches_nfc_link(self):
         self.write(unicodedata.normalize("NFD", "정렬 기초.md"), "## 버블 정렬\n")
@@ -58,7 +58,7 @@ class CheckLinksTest(unittest.TestCase):
         self.write("a.md", "[[개념#베타]]\n")
         code, out = self.run_check()
         self.assertEqual(code, 0, out)
-        self.assertIn("모호함", out)
+        self.assertIn("ambiguous", out)
 
     def test_ambiguous_name_missing_heading_is_error(self):
         self.write("A/개념.md", "## 알파\n")
@@ -66,7 +66,7 @@ class CheckLinksTest(unittest.TestCase):
         self.write("a.md", "[[개념#감마]]\n")
         code, out = self.run_check()
         self.assertEqual(code, 1)
-        self.assertIn("헤딩 없음", out)
+        self.assertIn("missing heading", out)
 
     def test_inline_code_in_heading_link(self):
         self.write("코드.md", "## `sort()` 함수\n")
@@ -90,13 +90,13 @@ class CheckLinksTest(unittest.TestCase):
         self.write("a.md", "[[없는보드.canvas]]\n")
         code, out = self.run_check()
         self.assertEqual(code, 1)
-        self.assertIn("파일 없음", out)
+        self.assertIn("missing file", out)
 
     def test_missing_attachment_is_warning(self):
         self.write("a.md", "[[강의.pdf#page=2]]\n")
         code, out = self.run_check()
         self.assertEqual(code, 0)
-        self.assertIn("첨부 없음", out)
+        self.assertIn("missing attachment", out)
 
     def test_bad_target_exits_2(self):
         self.assertEqual(self.run_check("없는폴더")[0], 2)

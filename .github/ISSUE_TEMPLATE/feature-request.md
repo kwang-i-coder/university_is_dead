@@ -1,15 +1,15 @@
 ---
 name: Enhancement Request
-about: 새 명령어, 규칙, 템플릿, 과목 유형 지원을 제안할 때
+about: Propose a new command, rule, template, or support for a new kind of course
 labels: enhancement
 
 ---
-<!-- 기능 제안에만 이 템플릿을 써 주세요 -->
+<!-- Use this template only for feature requests -->
 
-**무엇을 추가하고 싶나요**:
-<!-- 예: "기출 분석" 명령어, 증명 과목 모드, 클코 설명 저장 -->
+**What would you like to add**:
+<!-- Examples: a "기출 분석" (past-exam analysis) command, proof-course mode, saving group explanations -->
 
-**왜 필요한가요**:
-<!-- 어떤 과목·상황에서 지금 지침으로는 부족했는지 -->
+**Why is this needed**:
+<!-- Which course or situation the current instructions did not handle well -->
 
-**어떻게 쓰게 될까요 (예시 대화나 결과 파일 모양)**:
+**How would it be used (an example conversation or what the output file looks like)**:
