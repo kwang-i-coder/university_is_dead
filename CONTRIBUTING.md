@@ -38,6 +38,8 @@ Professors' slides, PDFs, original past exams, and notes that transcribe real le
 
 The README, FAQ, and usage examples each have an English file and a Korean `.ko.md` file. When you change one, update the other in the same PR.
 
+The README is also translated into Chinese, Japanese, Spanish, Vietnamese, and Portuguese (`README.zh-CN.md`, `README.ja.md`, `README.es.md`, `README.vi.md`, `README.pt-BR.md`). The English README is authoritative. Update the translations too if you can; if not, say so in the PR so they can be updated later.
+
 ## How to check
 
 ```bash

@@ -1,6 +1,6 @@
 # university_is_dead 🎓
 
-**English** | [한국어](README.ko.md)
+**English** | [한국어](README.ko.md) | [中文](README.zh-CN.md) | [日本語](README.ja.md) | [Español](README.es.md) | [Tiếng Việt](README.vi.md) | [Português](README.pt-BR.md)
 
 **An instruction set and Obsidian note templates for studying university lectures with Claude.**
 Add your lecture PDFs, then use short commands such as `운체 3` (OS chapter 3), `다음` (next), or `시험 정리본` (exam summary) to get in-depth explanations in slide order. Claude can also build note skeletons, exam summaries, and ELI5 picture books.
