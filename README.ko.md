@@ -1,6 +1,6 @@
 # university_is_dead 🎓
 
-[English](README.md) | **한국어**
+[English](README.md) | **한국어** | [中文](README.zh-CN.md) | [日本語](README.ja.md) | [Español](README.es.md) | [Tiếng Việt](README.vi.md) | [Português](README.pt-BR.md)
 
 **Claude + Obsidian으로 강의를 공부하는 지침서와 노트 양식.**
 강의 PDF를 넣고 `운체 3`, `다음`, `시험 정리본` 같은 짧은 명령어로 슬라이드 순서대로 깊게 설명 듣고, 필기 골격·시험 정리본·ELI5 그림책까지 만듭니다.
