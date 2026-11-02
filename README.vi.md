@@ -21,6 +21,8 @@ Thêm file PDF bài giảng của bạn, rồi dùng các lệnh ngắn như `�
 | `/eli5 {ghi chú}` | Sách tranh HTML tách bạch phép ví von với định nghĩa trong bài giảng |
 | `저장해줘` / `운체 3 전부` | Lưu phần giải thích từng nhóm thành ghi chú trong `클코 설명/`, nối với nhau bằng liên kết `다음 →` từ nhóm đầu đến nhóm cuối |
 | `기출 분석` + đề thi cũ hoặc bài chia sẻ sau kỳ thi | Ghi bảng đề thi theo từng năm, các chủ đề hay gặp và thứ tự ưu tiên vào `클코 정리/기출 분석.md` |
+| `운체 3 퀴즈` / `운체 3-2 퀴즈` | Ra từng câu hỏi một và chấm ngay mỗi câu trả lời; câu sai được lưu vào `클코 정리/오답 노트.md` (sổ ghi lỗi sai) |
+| `오답 복습` | Ra lại câu hỏi từ sổ ghi lỗi sai; câu nào trả lời đúng hai lần liên tiếp thì được "tốt nghiệp" |
 | (`증명 과목` trong phần ngoại lệ của môn học) | Mẫu chứng minh cho từng định lý, bảng mệnh đề đảo và điều kiện, cùng đề thi thử theo định dạng đề cũ |
 
 ## Cài đặt trong 5 phút
@@ -53,7 +55,7 @@ Thêm file PDF bài giảng của bạn, rồi dùng các lệnh ngắn như `�
 |---|---|
 | [`INSTRUCTIONS.md`](INSTRUCTIONS.md) | Bộ chỉ dẫn (dành cho Claude Projects) |
 | [`CLAUDE.md`](CLAUDE.md) | Cùng bộ chỉ dẫn đó (dành cho Claude Code) |
-| [`templates/`](templates) | Các mẫu trống: khung ghi chú, 개념.md, bản tóm tắt ôn thi, giải thích nhóm, phân tích đề thi cũ, HTML ELI5 |
+| [`templates/`](templates) | Các mẫu trống: khung ghi chú, 개념.md, bản tóm tắt ôn thi, giải thích nhóm, phân tích đề thi cũ, sổ ghi lỗi sai, HTML ELI5 |
 | [`tools/check_links.py`](tools/check_links.py) | Công cụ kiểm tra liên kết Obsidian (tìm ghi chú, tiêu đề và tệp đính kèm bị thiếu) |
 | [`example-vault/알고리즘/`](example-vault/알고리즘) | Ví dụ đã điền sẵn với một môn Thuật toán hư cấu. Hãy mở nó bằng Obsidian |
 | [`docs/usage-examples.md`](docs/usage-examples.md) | Luồng hội thoại cho từng lệnh |

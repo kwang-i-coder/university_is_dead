@@ -19,6 +19,8 @@
 | `/eli5 {노트}` | 비유와 강의 정의를 구분한 HTML 그림책 |
 | "저장해줘" / `운체 3 전부` | 그룹 설명을 `클코 설명/` 노트로 저장. 처음부터 끝까지 `다음 →` 링크로 이어짐 |
 | "기출 분석" + 기출·시험 후기 | 연도별 문제 표, 빈출 주제, 우선순위를 `클코 정리/기출 분석.md`로 |
+| `운체 3 퀴즈` / `운체 3-2 퀴즈` | 한 문제씩 내고 바로 채점, 틀린 문제는 `클코 정리/오답 노트.md`에 모음 |
+| `오답 복습` | 오답 노트에서 다시 출제, 연속 2번 맞히면 졸업 |
 | (과목 예외에 `증명 과목`) | 정리마다 답안용 증명 템플릿, 역과 조건 표, 기출 형식 모의고사 |
 
 ## 5분 시작 가이드
@@ -51,7 +53,7 @@
 |---|---|
 | [`INSTRUCTIONS.md`](INSTRUCTIONS.md) | 프로젝트 지침 원본 (Claude Projects용) |
 | [`CLAUDE.md`](CLAUDE.md) | 같은 지침 (Claude Code용) |
-| [`templates/`](templates) | 필기 골격, 개념.md, 시험 정리본, 클코 설명, 기출 분석, ELI5 HTML 빈 양식 |
+| [`templates/`](templates) | 필기 골격, 개념.md, 시험 정리본, 클코 설명, 기출 분석, 오답 노트, ELI5 HTML 빈 양식 |
 | [`tools/check_links.py`](tools/check_links.py) | Obsidian 링크 검사기 (없는 노트·헤딩·첨부를 찾음) |
 | [`example-vault/알고리즘/`](example-vault/알고리즘) | 가상 과목으로 채운 예시. Obsidian으로 열어 보세요 |
 | [`docs/usage-examples.ko.md`](docs/usage-examples.ko.md) | 명령어별 대화 흐름 |

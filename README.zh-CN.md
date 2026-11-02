@@ -21,6 +21,8 @@
 | `/eli5 {笔记}` | 一本把比喻和课程定义区分开来的 HTML 图画书 |
 | `저장해줘` / `운체 3 전부` | 把分组讲解保存为 `클코 설명/` 中的笔记，并用 `다음 →` 链接从头串到尾 |
 | `기출 분석` + 往年试题或考试回忆 | 把按年份整理的题目表、高频主题和优先级写入 `클코 정리/기출 분석.md` |
+| `운체 3 퀴즈` / `운체 3-2 퀴즈` | 一次出一道题并立即批改，答错的题收进 `클코 정리/오답 노트.md`（错题本） |
+| `오답 복습` | 从错题本重新出题，连续答对两次的题即可“毕业” |
 | （在课程例外中写上 `증명 과목`） | 每个定理的证明模板、逆命题与成立条件表，以及按往年试题格式出的模拟考试 |
 
 ## 5 分钟上手
@@ -53,7 +55,7 @@
 |---|---|
 | [`INSTRUCTIONS.md`](INSTRUCTIONS.md) | 指令（用于 Claude Projects） |
 | [`CLAUDE.md`](CLAUDE.md) | 相同的指令（用于 Claude Code） |
-| [`templates/`](templates) | 空白模板：笔记骨架、개념.md、考试总结、分组讲解、往年试题分析、ELI5 HTML |
+| [`templates/`](templates) | 空白模板：笔记骨架、개념.md、考试总结、分组讲解、往年试题分析、错题本、ELI5 HTML |
 | [`tools/check_links.py`](tools/check_links.py) | Obsidian 链接检查器（查找缺失的笔记、标题和附件） |
 | [`example-vault/알고리즘/`](example-vault/알고리즘) | 用一门虚构的算法课填好的示例，可以用 Obsidian 打开 |
 | [`docs/usage-examples.md`](docs/usage-examples.md) | 各命令的对话流程 |

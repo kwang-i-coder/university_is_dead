@@ -71,3 +71,24 @@ Claude saves the group it just explained as `클코 설명/L01-1 정렬 문제�
 Claude writes `클코 정리/기출 분석.md` with a table linking each year's problems to lecture pages, the frequent topics within the exam scope, and a priority list. If you give it screenshots of students' exam reviews, it finds the matching lecture for each item and tells you separately about topics that are not in the materials you have.
 
 If you write `증명 과목` (proof course) in the course exceptions, exam summaries switch to verbatim definitions, an exam-ready proof for each theorem, converse-and-condition tables, and mock exams in the past-exam format.
+
+## 8. Quizzes and wrong-answer review
+
+> **Me**: 알고 1 퀴즈
+> (Quiz me on Algorithms, chapter 1.)
+
+Claude asks a single question with a `Q1/5 · L1` line. It does not show the answer before you reply.
+
+> **Claude**: Q1/5 · L1 — Which of Bubble, Insertion, and Selection Sort is unstable? Explain why.
+
+> **Me**: Bubble Sort
+
+Claude grades it ❌ right away and shows the model answer (Selection Sort, because it swaps distant elements), the grading criteria, the 📄 source page, and the reason for the mistake (misunderstood concept). After five questions, or when you say `그만` (stop), it shows your score (✅ 3 · 🔺 1 · ❌ 1) and the notes to review, and adds the 🔺 and ❌ questions to `클코 정리/오답 노트.md` (wrong-answer note).
+
+> **Me**: 오답 복습
+> (Review my wrong answers.)
+
+Claude asks the questions from the wrong-answer note again, possibly with different wording or numbers. Each result is appended to the question's record line (`❌ ✅ …`), and a question moves to `## 졸업` (graduated) after two correct answers in a row.
+→ Result: [`클코 정리/오답 노트.md`](../example-vault/알고리즘/클코%20정리/오답%20노트.md)
+
+Where Claude cannot write files directly, such as in Claude Projects, it prints a block for you to paste into the wrong-answer note. For a review, paste the note's contents into the chat.

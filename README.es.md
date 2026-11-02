@@ -21,6 +21,8 @@ Agrega los PDF de tus clases y usa comandos cortos como `운체 3` (capítulo 3 
 | `/eli5 {nota}` | Un libro ilustrado en HTML que distingue las analogías de las definiciones de la clase |
 | `저장해줘` / `운체 3 전부` | Guarda las explicaciones de los grupos como notas en `클코 설명/`, encadenadas de la primera a la última con enlaces `다음 →` |
 | `기출 분석` + exámenes anteriores o reseñas de exámenes | Escribe en `클코 정리/기출 분석.md` tablas de problemas por año, temas frecuentes y prioridades |
+| `운체 3 퀴즈` / `운체 3-2 퀴즈` | Te hace preguntas una por una y corrige cada respuesta al instante; las que fallas se guardan en `클코 정리/오답 노트.md` (cuaderno de errores) |
+| `오답 복습` | Vuelve a preguntarte desde el cuaderno de errores; una pregunta se "gradúa" tras dos aciertos seguidos |
 | (`증명 과목` en las excepciones del curso) | Plantillas de demostración para cada teorema, tablas de recíprocos y condiciones, y simulacros de examen con el formato de los exámenes anteriores |
 
 ## Configuración en 5 minutos
@@ -53,7 +55,7 @@ Agrega los PDF de tus clases y usa comandos cortos como `운체 3` (capítulo 3 
 |---|---|
 | [`INSTRUCTIONS.md`](INSTRUCTIONS.md) | Las instrucciones (para Claude Projects) |
 | [`CLAUDE.md`](CLAUDE.md) | Las mismas instrucciones (para Claude Code) |
-| [`templates/`](templates) | Plantillas vacías: esqueleto de notas, 개념.md, resumen para el examen, explicación de grupo, análisis de exámenes anteriores, HTML ELI5 |
+| [`templates/`](templates) | Plantillas vacías: esqueleto de notas, 개념.md, resumen para el examen, explicación de grupo, análisis de exámenes anteriores, cuaderno de errores, HTML ELI5 |
 | [`tools/check_links.py`](tools/check_links.py) | Verificador de enlaces de Obsidian (detecta notas, encabezados y archivos adjuntos que faltan) |
 | [`example-vault/알고리즘/`](example-vault/알고리즘) | Un ejemplo completo con un curso ficticio de Algoritmos. Ábrelo en Obsidian |
 | [`docs/usage-examples.md`](docs/usage-examples.md) | Flujo de conversación de cada comando |
