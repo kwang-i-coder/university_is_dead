@@ -83,12 +83,12 @@ Claude asks a single question with a `Q1/5 · L1` line. It does not show the ans
 
 > **Me**: Bubble Sort
 
-Claude grades it ❌ right away and shows the model answer (Selection Sort, because it swaps distant elements), the grading criteria, the 📄 source page, and the reason for the mistake (misunderstood concept). After five questions, or when you say `그만` (stop), it shows your score (✅ 3 · 🔺 1 · ❌ 1) and the notes to review, and adds the 🔺 and ❌ questions to `클코 정리/오답 노트.md` (wrong-answer note).
+Claude grades it ❌ right away and shows the model answer (Selection Sort, because it swaps distant elements), the grading criteria, the 📄 source page, and the reason for the mistake (misunderstood concept). After five questions, or when you say `그만` (stop), it shows your score (✅ 3 · 🔺 1 · ❌ 1) and the notes to review. The 🔺 and ❌ questions go to `클코 정리/오답 노트.md` (wrong-answer note) as soon as each one is graded.
 
 > **Me**: 오답 복습
 > (Review my wrong answers.)
 
-Claude asks the questions from the wrong-answer note again, possibly with different wording or numbers. Each result is appended to the question's record line (`❌ ✅ …`), and a question moves to `## 졸업` (graduated) after two correct answers in a row.
+Claude asks the questions from the wrong-answer note again, possibly with different wording or numbers, and sets grading criteria that fit the changed question. Each result is appended with its date to the question's record line (`❌ 10/28 · ✅ 10/30 …`), and a question moves to `## 졸업` (graduated) after two correct answers in a row.
 → Result: [`클코 정리/오답 노트.md`](../example-vault/알고리즘/클코%20정리/오답%20노트.md)
 
 Where Claude cannot write files directly, such as in Claude Projects, it prints a block for you to paste into the wrong-answer note. For a review, paste the note's contents into the chat.
