@@ -22,7 +22,7 @@ Add your lecture PDFs, then use short commands such as `운체 3` (OS chapter 3)
 | `저장해줘` / `운체 3 전부` | Saves group explanations as notes in `클코 설명/`, chained with `다음 →` links from first to last |
 | `기출 분석` + past exams or exam reviews | Writes per-year problem tables, frequent topics, and priorities to `클코 정리/기출 분석.md` |
 | `운체 3 퀴즈` / `운체 3-2 퀴즈` | Quizzes you one question at a time and grades each answer right away; missed questions go to `클코 정리/오답 노트.md` (wrong-answer note) |
-| `오답 복습` | Quizzes you again from the wrong-answer note; a question graduates after two correct answers in a row |
+| `오답 복습` | Quizzes you again from the wrong-answer note, weakest questions first; a question graduates after two correct answers in a row on different days |
 | (`증명 과목` in the course exceptions) | Proof templates for each theorem, converse-and-condition tables, and mock exams in the past-exam format |
 
 ## 5-minute setup

@@ -22,7 +22,7 @@ Agrega los PDF de tus clases y usa comandos cortos como `운체 3` (capítulo 3 
 | `저장해줘` / `운체 3 전부` | Guarda las explicaciones de los grupos como notas en `클코 설명/`, encadenadas de la primera a la última con enlaces `다음 →` |
 | `기출 분석` + exámenes anteriores o reseñas de exámenes | Escribe en `클코 정리/기출 분석.md` tablas de problemas por año, temas frecuentes y prioridades |
 | `운체 3 퀴즈` / `운체 3-2 퀴즈` | Te hace preguntas una por una y corrige cada respuesta al instante; las que fallas se guardan en `클코 정리/오답 노트.md` (cuaderno de errores) |
-| `오답 복습` | Vuelve a preguntarte desde el cuaderno de errores; una pregunta se "gradúa" tras dos aciertos seguidos |
+| `오답 복습` | Vuelve a preguntarte desde el cuaderno de errores, empezando por las preguntas más débiles; una pregunta se "gradúa" tras dos aciertos seguidos en días distintos |
 | (`증명 과목` en las excepciones del curso) | Plantillas de demostración para cada teorema, tablas de recíprocos y condiciones, y simulacros de examen con el formato de los exámenes anteriores |
 
 ## Configuración en 5 minutos

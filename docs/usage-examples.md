@@ -88,7 +88,7 @@ Claude grades it ❌ right away and shows the model answer (Selection Sort, beca
 > **Me**: 오답 복습
 > (Review my wrong answers.)
 
-Claude asks the questions from the wrong-answer note again, possibly with different wording or numbers, and sets grading criteria that fit the changed question. Each result is appended with its date to the question's record line (`❌ 10/28 · ✅ 10/30 …`), and a question moves to `## 졸업` (graduated) after two correct answers in a row.
+Claude picks five questions from the wrong-answer note, weakest first (❌, then 🔺, then the ones not seen for longest), and asks them again, possibly with different wording or numbers, and sets grading criteria that fit the changed question. Each result is appended with its date to the question's record line (`❌ 10/28 · ✅ 10/30 …`), and a question moves to `## 졸업` (graduated) after two correct answers in a row on different days. A second correct answer on the same day does not count, since you may just remember the answer you saw.
 → Result: [`클코 정리/오답 노트.md`](../example-vault/알고리즘/클코%20정리/오답%20노트.md)
 
 Where Claude cannot write files directly, such as in Claude Projects, it prints a block for you to paste into the wrong-answer note. For a review, paste the note's contents into the chat.
